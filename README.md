@@ -1,4 +1,4 @@
-#### Avanced mapreduce
+#### Advanced mapreduce
 * DATA JOINS
 * GRAPHS
 * JOB COUNTERS
