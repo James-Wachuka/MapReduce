@@ -1,6 +1,7 @@
-#### Advanced mapreduce
-* DATA JOINS
-* GRAPHS
-* JOB COUNTERS
-* REDUCE TASK
-* HANDLING INPUTS AND OUTPUTS
+#### Advanced mapreduce techniques
+* data joins
+* graphs
+* job counters
+* reduce tasks
+* handling inputs and outputs
+
