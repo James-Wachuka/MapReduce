@@ -56,8 +56,8 @@ start hadoop  and change the working directory to the one you created. Compile t
 ` jar -cvf Reduce.jar Reduce*class`
 create an input directory in hadoop for this job and put the sales.txt and accounts .txt
 `hadoop -mkdir /reduce_join`
-`hadoop fs -put sales.txt;accounts.txt /reduce_join`
-run the job.This job will accept two input files and create 
-`hadoop jar Reduce.jar /reduce_join/sales.txt;/reduce_join/accounts.txt join_output`
+`hadoop fs -put sales.txt accounts.txt /reduce_join`
+run the job.This job will accept two input files 
+`hadoop jar Reduce.jar  Reduce /reduce_join/sales.txt;/reduce_join/accounts.txt join_output`
 view the output
 `hadoop fs -cat /user/opt/reduce_join/part-r-00000`
