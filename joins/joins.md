@@ -17,7 +17,7 @@ to do it
 ##### Map-side joins
 As the name implies, read the data streams into the mapper and uses
 logic within the mapper function to perform the join. The great advantage of a map-side
-join is that by performing all joining—and more critically data volume reduction—within
+join is that by performing all joining and more critically data volume reduction within
 the mapper, the amount of data transferred to the reduce stage is greatly minimized. The
 drawback of map-side joins is that you either need to find a way of ensuring one of the
 data sources is very small or you need to define the job input to follow very specific criteria.
@@ -44,6 +44,20 @@ for each user account.
 Frequent tasks require reporting that uses data from both these sources; say, for example,
 we wanted to see the total number of sales and total value for each user but do not want
 to associate it with an anonymous ID number, but rather with a name. This may be valuable
-when customer service representatives wish to call the most frequent customers—data from
-the sales records—but want to be able to refer to the person by name and not just a number.
-Time for action – reduce-side join using MultipleInputs
+when customer service representatives wish to call the most frequent customers data from
+the sales records but want to be able to refer to the person by name and not just a number.
+Time for action  reduce-side join using MultipleInputs
+
+create  a working directory for this example and transfer the necessary files into the folder :
+`hadoop jar files` `sales.txt and accounts.txt` `reduce.java`
+start hadoop  and change the working directory to the one you created. Compile the java file and create its jar
+`cd\mapreduce_join`
+`javac Reduce.java -cp hadoop-common-2.*.*.jar;hadoop-mapreduce-client-core-2.*.*.jar`
+` jar -cvf Reduce.jar Reduce*class`
+create an input directory in hadoop for this job and put the sales.txt and accounts .txt
+`hadoop -mkdir /reduce_join`
+`hadoop fs -put sales.txt;accounts.txt /reduce_join`
+run the job.This job will accept two input files and create 
+`hadoop jar Reduce.jar /reduce_join/sales.txt;/reduce_join/accounts.txt join_output`
+view the output
+`hadoop fs -cat /user/opt/reduce_join/part-r-00000`
